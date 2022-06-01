@@ -7,3 +7,9 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+/* Margin Class Definitions */
+
+.m-2 {
+  margin: 2px
+}
