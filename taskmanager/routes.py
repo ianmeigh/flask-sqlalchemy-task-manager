@@ -45,3 +45,15 @@ def edit_category(category_id):
             flash("Name not changed")
 
     return render_template("edit_category.html", category=category)
+
+
+@app.route("/delete_category/<int:category_id>")
+def delete_category(category_id):
+    category = Category.query.get_or_404(category_id)
+    try:
+        db.session.delete(category)
+        db.session.commit()
+        return redirect(url_for("categories"))
+    except Exception as error:
+        db.session.rollback()
+        return error
