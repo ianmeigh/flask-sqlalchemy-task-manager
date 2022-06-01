@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems, {});
+document.addEventListener('DOMContentLoaded', function () {
+  M.Sidenav.init(document.querySelectorAll('.sidenav'), {});
+  M.Modal.init(document.querySelectorAll('.modal'), {});
 });
