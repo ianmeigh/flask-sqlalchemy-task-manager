@@ -20,7 +20,10 @@ class ProdConfig(Config):
     FLASK_ENV = "production"
     TESTING = False
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = environ.get("DATABASE_URL")
+    uri = environ.get("DATABASE_URL")
+    if uri.startswith("postgres://"):
+        uri = uri.replace("postgres://", "postgresql://", 1)
+    SQLALCHEMY_DATABASE_URI = uri
 
 
 class DevConfig(Config):
