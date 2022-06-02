@@ -11,7 +11,7 @@ def home():
 
 @app.route("/categories/")
 def categories():
-    categories = Category.query.order_by(Category.category_name).all()
+    categories = list(Category.query.order_by(Category.category_name).all())
     return render_template("categories.html", categories=categories)
 
 
