@@ -11,6 +11,7 @@
 
 <div class="row">
   <div class="col s12">
+    {% if tasks | length() != 0 %}
     <ul class="collapsible">
       {% for task in tasks | sort(attribute="due_date") %}
 
@@ -34,11 +35,11 @@
           <div id="modal-{{ task.id }}" class="modal">
             <div class="modal-content">
               <h4>Delete '{{ task.task_name }}'?</h4>
-              <p>Are you sure want to delete the category named '<strong>{{task.task_name}}</strong>'?</p>
+              <p>Are you sure want to delete the task named '<strong>{{task.task_name}}</strong>'?</p>
               <p>This action cannot be undone.</p>
             </div>
             <div class="modal-footer">
-              <a href="" class="btn red">Delete</a>
+              <a href="{{  url_for('delete_task', task_id=task.id)  }}" class="btn red">Delete</a>
               <a href="#!" class="btn green accent 4 modal-close">Cancel</a>
             </div>
           </div>
@@ -47,6 +48,7 @@
       </li>
       {% endfor %}
     </ul>
+    {% endif %}
   </div>
 </div>
 {% endblock %}
