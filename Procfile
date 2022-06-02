@@ -1,1 +1,1 @@
-web: gunicorn app:setup -p $PORT
+web: gunicorn setup:app -p $PORT
