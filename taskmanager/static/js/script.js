@@ -8,4 +8,5 @@ document.addEventListener('DOMContentLoaded', function () {
     i18n: {done: "Select"},
   });
   M.FormSelect.init(document.querySelectorAll('select'), {});
+  M.Collapsible.init(document.querySelectorAll('.collapsible'), {});
 });
