@@ -15,17 +15,16 @@ class Config:
     # General Config
     SECRET_KEY = environ.get("SECRET_KEY")
 
-    # Database
-    SQLALCHEMY_DATABASE_URI = environ.get("DB_URL")
-
 
 class ProdConfig(Config):
     FLASK_ENV = "production"
     TESTING = False
     DEBUG = False
+    SQLALCHEMY_DATABASE_URI = environ.get("DATABASE_URL")
 
 
 class DevConfig(Config):
     FLASK_ENV = "development"
     TESTING = True
     DEBUG = True
+    SQLALCHEMY_DATABASE_URI = environ.get("DB_URL")
